@@ -210,11 +210,11 @@ if __name__ == "__main__":
         clf = SVM(gaussian_kernel)
         clf.fit(X_train, y_train)
 
-        y_predict = clf.predict(X_test)
-        correct = np.sum(y_predict == y_test)
-        print "%d out of %d predictions correct" % (correct, len(y_predict))
+        y_predict = clf.predict(X_test[13])
+        print "PREDICTED CLASS", y_predict[0]
+        #print "%d out of %d predictions correct" % (correct, len(y_predict))
 
-        plot_contour(X_train[y_train==1], X_train[y_train==-1], clf)
+        #plot_contour(X_train[y_train==1], X_train[y_train==-1], clf)
 
     def test_soft():
         X1, y1, X2, y2 = gen_lin_separable_overlap_data()
@@ -231,3 +231,4 @@ if __name__ == "__main__":
         plot_contour(X_train[y_train==1], X_train[y_train==-1], clf)
 
     test_linear()
+    test_non_linear()

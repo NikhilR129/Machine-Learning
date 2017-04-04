@@ -26,7 +26,7 @@ def main():
     upper = 200
 
     # The K in k-means. How many clusters do we assume exist?
-    num_clusters = 3
+    num_clusters = 4
 
     # When do we say the optimization has 'converged' and stop updating clusters
     cutoff = 0.2
