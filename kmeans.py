@@ -13,16 +13,17 @@ except ImportError:
 
 def main():
 
-    # # How many points are in our dataset?
-    num_points = 180
-    #
-    # # For each of those points how many dimensions do they have?
-    # # Note: Plotting will only work in two or three dimensions
+
+    # How many points are in our dataset?
+    num_points = 20
+
+    # For each of those points how many dimensions do they have?
+    # Note: Plotting will only work in two or three dimensions
     dimensions = 2
-    #
-    # # Bounds for the values of those points in each dimension
-    # lower = 0
-    # upper = 200
+
+    # Bounds for the values of those points in each dimension
+    lower = 0
+    upper = 200
 
     # The K in k-means. How many clusters do we assume exist?
     num_clusters = 3
@@ -31,12 +32,17 @@ def main():
     cutoff = 0.2
 
     # Generate some points to cluster
+    points = [
+        makeRandomPoint(dimensions, lower, upper) for i in xrange(num_points)
+    ]
+
+    #Generate some points to cluster
     with open('dataset.csv','rb') as f:
         reader=csv.reader(f)
         points=list(reader)
     points1=[]
     for i in points:
-        points1.append([float(i[0]),float(i[1])])
+        points1.append(Point([float(i[0]),float(i[1])]))
     print points1
     #print points
     # Cluster those data!
